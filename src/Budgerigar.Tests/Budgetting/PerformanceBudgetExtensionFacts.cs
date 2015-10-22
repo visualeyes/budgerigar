@@ -66,7 +66,7 @@ namespace Budgerigar.Tests.Budgetting {
         public void Step_Action_Performs_Work_Value_If_Budget_Null() {
             PerformanceBudget budget = null;
             bool workDone = false;
-            budget.Step("step", () => workDone = true);
+            budget.Step("step", () => { workDone = true; });
             Assert.True(workDone);
         }
 
@@ -79,7 +79,7 @@ namespace Budgerigar.Tests.Budgetting {
 
             var budget = GetBudget(hasMonitor, (r) => result = r);
             bool workDone = false;
-            budget.Step(stepName, () => workDone = true);
+            budget.Step(stepName, () => { workDone = true; });
             budget.Dispose();
 
             Assert.True(workDone);
@@ -92,7 +92,7 @@ namespace Budgerigar.Tests.Budgetting {
             bool workDone = false;
             await budget.StepAsync("step", () => {
                 workDone = true;
-                return Task.FromResult(0);
+                return (Task)Task.FromResult(0);
             });
             Assert.True(workDone);
         }
@@ -108,7 +108,7 @@ namespace Budgerigar.Tests.Budgetting {
             bool workDone = false;
             await budget.StepAsync(stepName, () => {
                 workDone = true;
-                return Task.FromResult(0);
+                return (Task)Task.FromResult(0);
             });
             budget.Dispose();
 

@@ -68,7 +68,7 @@ namespace Budgerigar.Tests.Budgetting {
             PerformanceBudget budget = null;
             IPerformanceBudgetter budgetter = GetBudgetter();
 
-            await budgetter.RunWithBudgetAsync("test", 1.0M, (b) => { workDone = true; budget = b; return Task.FromResult(0); }, null);
+            await budgetter.RunWithBudgetAsync("test", 1.0M, (b) => { workDone = true; budget = b; return (Task)Task.FromResult(0); }, null);
 
             Assert.True(workDone);
             Assert.NotNull(budget);
@@ -80,7 +80,7 @@ namespace Budgerigar.Tests.Budgetting {
             PerformanceBudget budget = null;
             IPerformanceBudgetter budgetter = null;
 
-            await budgetter.RunWithBudgetAsync("test", 1.0M, (b) => { workDone = true; budget = b; return Task.FromResult(0); }, null);
+            await budgetter.RunWithBudgetAsync("test", 1.0M, (b) => { workDone = true; budget = b; return (Task)Task.FromResult(0); }, null);
 
             Assert.True(workDone);
             Assert.Null(budget);
