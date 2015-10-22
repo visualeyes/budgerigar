@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Budgerigar.MiniProfilerProvider</RootNamespace>
-    <AssemblyName>Budgerigar.MiniProfilerProvider</AssemblyName>
+    <AssemblyName>Budgerigar.MiniProfiler</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,7 +48,9 @@
     <Compile Include="Timing\MiniProfilerTimerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Budgerigar.MiniProfiler.nuspec" />
+    <None Include="Budgerigar.MiniProfiler.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
