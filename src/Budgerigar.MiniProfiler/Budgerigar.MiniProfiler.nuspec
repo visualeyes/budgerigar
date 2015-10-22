@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Budgerigar.MiniProfiler</id>
+    <version>$version$</version>
+    <authors>CareerHub</authors>
+    <owners>CareerHub</owners>
+    <projectUrl>https://github.com/visualeyes/budgerigar</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description></description>
+    <releaseNotes>This is the initial release.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Performance PerformanceBudgetting ASP.NET MiniProfiler</tags>
+    <dependencies>
+      <dependency id="Budgerigar" version="1.0.0" />
+      <dependency id="MiniProfiler" version="3.0.10" />
+    </dependencies>
+    <frameworkAssemblies>
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Budgerigar.MiniProfiler.dll" target="lib" />
+    <file src="bin\Release\Budgerigar.MiniProfiler.pdb" target="lib" />
+  </files>
+</package>
