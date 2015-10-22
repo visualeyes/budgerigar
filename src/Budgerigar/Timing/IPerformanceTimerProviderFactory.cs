@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Budgerigar.Timing {
-    public interface IPerformanceTimer {
+    public interface IPerformanceTimerProviderFactory {
         IPerformanceTimerProvider GetProvider();
     }
 }

@@ -12,7 +12,7 @@ namespace Budgerigar.Tests.Timing {
 
         [Fact]
         public void Does_Not_Throw_If_Null() {
-            var timer = new PerformanceTimer(null);
+            var timer = new PerformanceTimerProviderFactory(null);
             var provider = timer.GetProvider();
             Assert.Null(provider);
         }
@@ -20,7 +20,7 @@ namespace Budgerigar.Tests.Timing {
         [Fact]
         public void Returns_Provider() {
             var stopwatchProvider = new StopwatchTimerProvider();
-            var timer = new PerformanceTimer(stopwatchProvider);
+            var timer = new PerformanceTimerProviderFactory(stopwatchProvider);
             var provider = timer.GetProvider();
 
             Assert.NotNull(provider);

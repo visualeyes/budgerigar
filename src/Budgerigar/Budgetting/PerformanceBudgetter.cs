@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Budgerigar.Budgetting {
     public class PerformanceBudgetter : IPerformanceBudgetter {
 
-        private readonly IPerformanceTimer timer;
+        private readonly IPerformanceTimerProviderFactory timer;
         
-        public PerformanceBudgetter(IPerformanceTimer timer) {
+        public PerformanceBudgetter(IPerformanceTimerProviderFactory timer) {
             this.timer = timer;
         }
 

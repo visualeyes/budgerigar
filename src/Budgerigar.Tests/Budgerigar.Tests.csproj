@@ -75,14 +75,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Budgerigar.MiniProfiler\Budgerigar.MiniProfilerProvider.csproj">
-      <Project>{478dfd9a-a74a-44a3-afed-6217017f213d}</Project>
-      <Name>Budgerigar.MiniProfilerProvider</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Budgerigar.Xunit\Budgerigar.XUnit.csproj">
-      <Project>{fde249a0-5ba9-4c71-a2a8-a50728ca9e17}</Project>
-      <Name>Budgerigar.XUnit</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Budgerigar\Budgerigar.csproj">
       <Project>{38317b4a-7a62-48ec-8945-5205e0e9b4d0}</Project>
       <Name>Budgerigar</Name>

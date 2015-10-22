@@ -27,7 +27,7 @@ namespace Budgerigar.Tests.Budgetting {
 
         [Fact]
         public void Returns_Budget() {
-            var timer = new PerformanceTimer(new StopwatchTimerProvider());
+            var timer = new PerformanceTimerProviderFactory(new StopwatchTimerProvider());
             var budgetter = new PerformanceBudgetter(timer);
 
             var budget = budgetter.RunWithBudget("test", 1.0M, null);

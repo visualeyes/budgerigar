@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Budgerigar.Timing {
-    public class PerformanceTimer : IPerformanceTimer {
+    public class PerformanceTimerProviderFactory : IPerformanceTimerProviderFactory {
         private IPerformanceTimerProvider provider;
 
-        public PerformanceTimer(IPerformanceTimerProvider provider) {
+        public PerformanceTimerProviderFactory(IPerformanceTimerProvider provider) {
             this.provider = provider;
         }
 

@@ -12,7 +12,7 @@ namespace Budgerigar.Tests.Budgetting {
     public class PerformanceBudgetterExtensionFacts {
 
         public IPerformanceBudgetter GetBudgetter() {            
-            var timer = new PerformanceTimer(new StopwatchTimerProvider());
+            var timer = new PerformanceTimerProviderFactory(new StopwatchTimerProvider());
             return new PerformanceBudgetter(timer);
         }
 

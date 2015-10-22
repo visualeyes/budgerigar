@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Budgetting\IPerformanceBudgetter.cs" />
     <Compile Include="Budgetting\PerformanceBudgetterExtensions.cs" />
-    <Compile Include="Timing\IPerformanceTimer.cs" />
+    <Compile Include="Timing\IPerformanceTimerProviderFactory.cs" />
     <Compile Include="Timing\IPerformanceTimerMonitor.cs" />
     <Compile Include="Timing\IPerformanceTimerProvider.cs" />
     <Compile Include="Timing\IPerformanceTimerResult.cs" />
@@ -52,7 +52,7 @@
     <Compile Include="Budgetting\PerformanceBudgetResult.cs" />
     <Compile Include="Budgetting\PerformanceBudgetter.cs" />
     <Compile Include="Timing\PerformanceStepResult.cs" />
-    <Compile Include="Timing\PerformanceTimer.cs" />
+    <Compile Include="Timing\PerformanceTimerProviderFactory.cs" />
     <Compile Include="Timing\PerformanceTimerExtensions.cs" />
     <Compile Include="Timing\PerformanceTimerResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

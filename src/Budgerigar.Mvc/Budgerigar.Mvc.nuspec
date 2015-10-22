@@ -1,23 +1,24 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Budgerigar</id>
+    <id>Budgerigar.Mvc</id>
     <version>$version$</version>
     <authors>CareerHub</authors>
     <owners>CareerHub</owners>
     <projectUrl>https://github.com/visualeyes/budgerigar</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Performance Budgetting for .NET</description>
+    <description>Performance Budgetting for ASP.NET</description>
     <releaseNotes>This is the initial release.</releaseNotes>
     <copyright>Copyright 2015</copyright>
-    <tags>Performance PerformanceBudgetting .NET</tags>
+    <tags>Performance PerformanceBudgetting .NET ASP.NET</tags>
     <dependencies>
+      <dependency id="Budgerigar" version="1.0.0" />
     </dependencies>
     <frameworkAssemblies>
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="bin\Release\Budgerigar.dll" target="lib" />
-    <file src="bin\Release\Budgerigar.pdb" target="lib" />
+    <file src="bin\Release\Budgerigar.Mvc.dll" target="lib" />
+    <file src="bin\Release\Budgerigar.Mvc.pdb" target="lib" />
   </files>
 </package>
