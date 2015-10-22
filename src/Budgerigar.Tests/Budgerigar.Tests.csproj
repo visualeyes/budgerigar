@@ -69,6 +69,7 @@
     <Compile Include="Timing\PerformanceTimerExtensionsFacts.cs" />
     <Compile Include="Timing\PerformanceTimerFacts.cs" />
     <Compile Include="Timing\PerformanceTimerResultFacts.cs" />
+    <Compile Include="Timing\StopWatch\StopwatchPerformanceMonitorStepFacts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

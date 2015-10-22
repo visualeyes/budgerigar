@@ -56,9 +56,9 @@
     <Compile Include="Timing\PerformanceTimerExtensions.cs" />
     <Compile Include="Timing\PerformanceTimerResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Timing\Stopwatch\StopwatchPerformanceMonitorStep.cs" />
-    <Compile Include="Timing\Stopwatch\StopwatchPerformanceTimerMonitor.cs" />
-    <Compile Include="Timing\Stopwatch\StopwatchTimerProvider.cs" />
+    <Compile Include="Timing\StopWatch\StopwatchPerformanceMonitorStep.cs" />
+    <Compile Include="Timing\StopWatch\StopwatchPerformanceTimerMonitor.cs" />
+    <Compile Include="Timing\StopWatch\StopwatchTimerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Budgerigar.nuspec" />
