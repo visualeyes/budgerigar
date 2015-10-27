@@ -24,7 +24,7 @@ namespace Budgerigar.Tests.Budgetting {
 
             Assert.NotNull(budget);
         }
-
+        
         [Fact]
         public void Returns_Budget() {
             var timer = new PerformanceTimerProviderFactory(new StopwatchTimerProvider());
@@ -34,5 +34,15 @@ namespace Budgerigar.Tests.Budgetting {
 
             Assert.NotNull(budget);
         }
+
+        [Fact]
+        public void Default_Constructor_Returns_Budget() {
+            var budgetter = new PerformanceBudgetter();
+
+            var budget = budgetter.RunWithBudget("test", 1.0M, null);
+
+            Assert.NotNull(budget);
+        }
+
     }
 }

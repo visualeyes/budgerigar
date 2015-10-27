@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BudgerigarConfigFacts.cs" />
     <Compile Include="Budgetting\PerformanceBudgetExtensionFacts.cs" />
     <Compile Include="Budgetting\PerformanceBudgetFacts.cs" />
     <Compile Include="Budgetting\PerformanceBudgetResultFacts.cs" />

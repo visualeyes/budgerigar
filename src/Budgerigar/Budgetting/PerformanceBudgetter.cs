@@ -10,6 +10,10 @@ namespace Budgerigar.Budgetting {
 
         private readonly IPerformanceTimerProviderFactory timer;
         
+        public PerformanceBudgetter() 
+            : this(BudgerigarConfig.Config.TimerProviderFactory) {
+        }
+
         public PerformanceBudgetter(IPerformanceTimerProviderFactory timer) {
             this.timer = timer;
         }

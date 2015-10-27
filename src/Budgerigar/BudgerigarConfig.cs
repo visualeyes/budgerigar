@@ -8,25 +8,31 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Budgerigar.Mvc {
-    public class BudgerigarWebConfig {
+namespace Budgerigar {
+    public class BudgerigarConfig {
         private static readonly ReaderWriterLockSlim lck = new ReaderWriterLockSlim();
-        private static BudgerigarWebConfig configuration = new BudgerigarWebConfig();
+        private static BudgerigarConfig configuration = new BudgerigarConfig();
 
 
-        public BudgerigarWebConfig() {
+        public BudgerigarConfig() {
             var stopwatchProvider = new StopwatchTimerProvider();
             this.TimerProviderFactory = new PerformanceTimerProviderFactory(stopwatchProvider);
         }
 
         public IPerformanceTimerProviderFactory TimerProviderFactory { get; set; }
-        public Action<PerformanceBudgetResult> OnBudgetResult { get; set; }
 
-        public static BudgerigarWebConfig Config {
-            get { return configuration; }
+        public static BudgerigarConfig Config {
+            get {
+                try {
+                    lck.EnterReadLock();
+                    return configuration;
+                } finally {
+                    lck.ExitReadLock();
+                }
+            }
         }
 
-        public static void SetConfig(BudgerigarWebConfig config) {
+        public static void SetConfig(BudgerigarConfig config) {
             try {
                 lck.EnterWriteLock();
                 configuration = config;

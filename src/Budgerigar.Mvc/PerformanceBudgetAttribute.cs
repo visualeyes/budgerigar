@@ -8,26 +8,28 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Budgerigar.Mvc {
+
     public class PerformanceBudgetAttribute : ActionFilterAttribute {
         private const string BudgetKey = "BudgerigarPerfBudgetKey";
 
         private readonly decimal budgetMs;
+        private readonly Action<PerformanceBudgetResult> onCompletion;
 
-        public PerformanceBudgetAttribute(decimal budgetMs) {
+        public PerformanceBudgetAttribute(decimal budgetMs, Action<PerformanceBudgetResult> onCompletion) {
             this.budgetMs = budgetMs;
+            this.onCompletion = onCompletion;
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext) {
             base.OnActionExecuting(filterContext);
 
-            //TODO: Performance Timer Setting
-            //TODO: OnCompletion Factory
-
             string url = filterContext.HttpContext.Request.Url.ToString();
                         
-            var monitor = BudgerigarWebConfig.Config.TimerProviderFactory.Start(url);
+            var budgetter = new PerformanceBudgetter();
 
-            var budget = new PerformanceBudget(monitor, budgetMs, BudgerigarWebConfig.Config.OnBudgetResult);
+            var budget = budgetter.RunWithBudget(url, budgetMs, onCompletion);
+
+            SetPerformaceBudgetterFromContext(budget, filterContext);
         }
         
         public override void OnActionExecuted(ActionExecutedContext filterContext) {
