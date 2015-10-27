@@ -11,10 +11,8 @@ It allows you to set performance targets and take action if those targets are no
 ## Getting Started with Budgerigar
 
     
-    var stopwatchTimer = new StopwatchTimerProvider();
-    var timerFactory = new PerformanceTimerProviderFactory(stopwatchTimer);
-    var budgetter = new PerformanceBudgetter(timer);
-    var response = await budgetter.RunWithBudgetAsync("HttpRequest-http://localhost", 1.0M, async (b) => { 
+    var budgetter = new PerformanceBudgetter();
+    var response = await budgetter.RunWithBudgetAsync("some-task-name", 1.0M, async (b) => { 
         // do work  
     
     }, (result) => {
