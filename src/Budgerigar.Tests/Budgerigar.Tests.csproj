@@ -66,6 +66,8 @@
     <Compile Include="Budgetting\PerformanceBudgetResultFacts.cs" />
     <Compile Include="Budgetting\PerformanceBudgetterExtensionFacts.cs" />
     <Compile Include="Budgetting\PerformanceBudgetterFacts.cs" />
+    <Compile Include="MiniProfiler\MiniProfilerTimerMonitorFacts.cs" />
+    <Compile Include="MiniProfiler\MiniProfilerTimerProviderFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Timing\PerformanceStepResultFacts.cs" />
     <Compile Include="Timing\PerformanceTimerExtensionsFacts.cs" />
@@ -78,6 +80,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Budgerigar.MiniProfiler\Budgerigar.MiniProfilerProvider.csproj">
+      <Project>{478dfd9a-a74a-44a3-afed-6217017f213d}</Project>
+      <Name>Budgerigar.MiniProfilerProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Budgerigar\Budgerigar.csproj">
       <Project>{38317b4a-7a62-48ec-8945-5205e0e9b4d0}</Project>
       <Name>Budgerigar</Name>
