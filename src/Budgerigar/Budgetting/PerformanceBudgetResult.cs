@@ -10,7 +10,7 @@ namespace Budgerigar.Budgetting {
         private readonly decimal millisecondsOver;
         private readonly decimal millisecondsUnder;
 
-        public PerformanceBudgetResult(string name, decimal budgetMs, decimal durationMs) {
+        public PerformanceBudgetResult(string name, decimal budgetMs, decimal durationMs, Exception e) {
             if (budgetMs < 0) throw new ArgumentException("Budget must be positive", "budgetMs");
             if (durationMs < 0) throw new ArgumentException("Duration must be positive", "durationMs");
 
@@ -22,6 +22,7 @@ namespace Budgerigar.Budgetting {
             this.BudgetMilliseconds = budgetMs;
             this.DurationMilliseconds = durationMs;
             this.Steps = Enumerable.Empty<PerformanceStepResult>();
+            this.Exception = e;
         }
 
         public string Name { get; private set; }
@@ -29,6 +30,8 @@ namespace Budgerigar.Budgetting {
         public decimal DurationMilliseconds { get; private set; }
 
         public IEnumerable<PerformanceStepResult> Steps { get; set; }
+
+        public Exception Exception { get; private set; }
 
         public bool IsOver {
             get { return millisecondsOver > 0; }

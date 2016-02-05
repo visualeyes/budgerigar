@@ -12,27 +12,27 @@ namespace Budgerigar.Tests.Budgetting {
 
         [Fact]
         public void Does_Not_Throw_On_Null_Name() {
-            new PerformanceBudgetResult(null, 1.0M, 1.0M);
+            new PerformanceBudgetResult(null, 1.0M, 1.0M, null);
         }
 
         [Fact]
         public void Does_Not_Throw_On_Whitespace_Name() {
-            new PerformanceBudgetResult("  ", 1.0M, 1.0M);
+            new PerformanceBudgetResult("  ", 1.0M, 1.0M, null);
         }
 
         [Fact]
         public void Throws_If_Budget_Negative() {
-            Assert.Throws<ArgumentException>(() => new PerformanceBudgetResult(null, -1.0M, 1.0M));
+            Assert.Throws<ArgumentException>(() => new PerformanceBudgetResult(null, -1.0M, 1.0M, null));
         }
 
         [Fact]
         public void Throws_If_Duration_Negative() {
-            Assert.Throws<ArgumentException>(() => new PerformanceBudgetResult(null, 1.0M, -1.0M));
+            Assert.Throws<ArgumentException>(() => new PerformanceBudgetResult(null, 1.0M, -1.0M, null));
         }
 
         [Fact]
         public void Steps_initialised() {
-            var result = new PerformanceBudgetResult("test", 1.0M, 1.0M);
+            var result = new PerformanceBudgetResult("test", 1.0M, 1.0M, null);
             Assert.NotNull(result.Steps);
             Assert.Empty(result.Steps);
         }
@@ -46,7 +46,7 @@ namespace Budgerigar.Tests.Budgetting {
             decimal msDiff = Math.Abs(durationMs - budgetMs);
             decimal diffPercentage = (msDiff / budgetMs) * 100;
 
-            var result = new PerformanceBudgetResult("test", budgetMs, durationMs);
+            var result = new PerformanceBudgetResult("test", budgetMs, durationMs, null);
 
             Assert.Equal(isOver, result.IsOver);
             Assert.Equal(isOver, result.OverBudgetPercentage.HasValue);
@@ -69,7 +69,7 @@ namespace Budgerigar.Tests.Budgetting {
         [InlineData("test", 2.0, 1.0, "Budget for test was under performance budget by 50.000% (1.000ms).")]
         [InlineData(null, 2.0, 1.0, "Action was under performance budget by 50.000% (1.000ms).")]
         public void Get_Result_Message(string name, decimal budgetMs, decimal durationMs, string expected) {
-            var result = new PerformanceBudgetResult(name, budgetMs, durationMs);
+            var result = new PerformanceBudgetResult(name, budgetMs, durationMs, null);
             string actual = result.GetResultMessage();
 
             Assert.Equal(expected, actual);
@@ -81,7 +81,7 @@ namespace Budgerigar.Tests.Budgetting {
         [InlineData("test", 2.0, 1.0, "Budget was set to 2.000ms\r\nDuration was 1.000ms\r\nBudget for test was under performance budget by 50.000% (1.000ms).\r\n")]
         [InlineData(null, 2.0, 1.0, "Budget was set to 2.000ms\r\nDuration was 1.000ms\r\nAction was under performance budget by 50.000% (1.000ms).\r\n")]
         public void Get_Detailed_Output_Without_Steps(string name, decimal budgetMs, decimal durationMs, string expected) {
-            var result = new PerformanceBudgetResult(name, budgetMs, durationMs);
+            var result = new PerformanceBudgetResult(name, budgetMs, durationMs, null);
             string actual = result.GetDetailedOutput();
 
             Assert.Equal(expected, actual);
@@ -95,7 +95,7 @@ namespace Budgerigar.Tests.Budgetting {
                 new PerformanceStepResult("one", 1.0M)
             };
 
-            var result = new PerformanceBudgetResult(null, 2.0M, 1.0M) { Steps = steps };
+            var result = new PerformanceBudgetResult(null, 2.0M, 1.0M, null) { Steps = steps };
 
             string actual = result.GetDetailedOutput();
 
@@ -112,7 +112,7 @@ namespace Budgerigar.Tests.Budgetting {
                 new PerformanceStepResult("duplicate", null),
             };
 
-            var result = new PerformanceBudgetResult(null, 2.0M, 1.0M) { Steps = steps };
+            var result = new PerformanceBudgetResult(null, 2.0M, 1.0M, null) { Steps = steps };
 
             string actual = result.GetDetailedOutput();
 
@@ -127,7 +127,7 @@ namespace Budgerigar.Tests.Budgetting {
                 new PerformanceStepResult("notfinished", null),
             };
 
-            var result = new PerformanceBudgetResult(null, 2.0M, 1.0M) { Steps = steps };
+            var result = new PerformanceBudgetResult(null, 2.0M, 1.0M, null) { Steps = steps };
 
             string actual = result.GetDetailedOutput();
 

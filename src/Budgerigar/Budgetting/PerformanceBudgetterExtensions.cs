@@ -9,7 +9,7 @@ namespace Budgerigar.Budgetting {
         public static void RunWithBudget(this IPerformanceBudgetter budgetter, string name, decimal budgetMs, Action<PerformanceBudget> work, Action<PerformanceBudgetResult> onCompletion) {
             if (budgetter != null) {
                 using (var budget = budgetter.RunWithBudget(name, budgetMs, onCompletion)) {
-                    work(budget);
+                    budget.RunAsync(work);
                 }
             } else {
                 work(null);
@@ -19,7 +19,7 @@ namespace Budgerigar.Budgetting {
         public static T RunWithBudget<T>(this IPerformanceBudgetter budgetter, string name, decimal budgetMs, Func<PerformanceBudget, T> work, Action<PerformanceBudgetResult> onCompletion) {
             if (budgetter != null) {
                 using (var budget = budgetter.RunWithBudget(name, budgetMs, onCompletion)) {
-                    return work(budget);
+                    return budget.RunAsync(work);
                 }
             } else {
                 return work(null);
@@ -29,7 +29,7 @@ namespace Budgerigar.Budgetting {
         public static async Task RunWithBudgetAsync(this IPerformanceBudgetter budgetter, string name, decimal budgetMs, Func<PerformanceBudget, Task> work, Action<PerformanceBudgetResult> onCompletion) {
             if (budgetter != null) {
                 using (var budget = budgetter.RunWithBudget(name, budgetMs, onCompletion)) {
-                    await work(budget);
+                    await budget.RunAsync(work);
                 }
             } else {
                 await work(null);
@@ -39,7 +39,7 @@ namespace Budgerigar.Budgetting {
         public static async Task<T> RunWithBudgetAsync<T>(this IPerformanceBudgetter budgetter, string name, decimal budgetMs, Func<PerformanceBudget, Task<T>> work, Action<PerformanceBudgetResult> onCompletion) {
             if (budgetter != null) {
                 using (var budget = budgetter.RunWithBudget(name, budgetMs, onCompletion)) {
-                    return await work(budget);
+                    return await budget.RunAsync(work);
                 }
             } else {
                 return await work(null);
